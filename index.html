@@ -21,22 +21,24 @@ la estructura que se llenara como se menciona a continuación...-->
 
 
 	<!--dentro de la estiqueta header esta todo lo que sera el encanbezado de la página, pudiendo colocarse dentro del body o antes del body-->
-	<header class='menu-container' id="inicio">
+	<header id="inicio">
 
-      <div class='identificador'>
-        <!----modificar nombre y ruta de la imagen para cambiar el logo por el propio----->
-       <img src="assets/img/logo.png">
-      </div>
+	<div class="menu-top">
+		<div class="identificador">
+		<img src="assets/img/logo.png" alt="Logo del sitio">
+		</div>
 
-      <div class='ligas-secciones'>
-      	<!----modificar nombre de la seccion acorde a la necesidad----->
-          <a href="#secc1">Museo de Louvre</a>
-          <a href="#secc2">Festival Open Frame</a>
-          <a href="#secc3">Autores y libros</a>
-          <a href="#secc4">Materiales audiovisuales</a>
-        </div>
+		<button class="menu-toggle" id="menuToggle">☰</button>
+	</div>
 
-    </header>
+	<nav class="ligas-secciones" id="menuLinks">
+		<a href="#secc1">Museo de Louvre</a>
+		<a href="#secc2">Festival Open Frame</a>
+		<a href="#secc3">Autores y libros</a>
+		<a href="#secc4">Materiales audiovisuales</a>
+	</nav>
+
+	</header>
 
  
 
@@ -324,3 +326,13 @@ la estructura que se llenara como se menciona a continuación...-->
 </body>
 
 </html>
+
+
+<script>
+  const toggleBtn = document.getElementById("menuToggle");
+  const links = document.getElementById("menuLinks");
+
+  toggleBtn.addEventListener("click", () => {
+    links.classList.toggle("show");
+  });
+</script>

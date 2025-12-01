@@ -17,60 +17,97 @@ html {
 /**********************************/
 /*estilos para header de la página*/
 /**********************************/
-header {/*caracteristicas elementos dentro del header de la pagina*/
-	font-size: 25px; /*tamaño de las fuentes que aprecen en el header*/
-  	background-color: #6a0000;  /*color fondo encabezado*/
-    height: 150px;  /* altura del encabezado, equivale a 5.5em*/
-    padding-left: 10%; /*hago un espacio a la izquierda al interior del contenedor header de 10% del ancho del viewport*/
-    padding-right: 10%; /*hago un espacio a la derecha al interior del contenedor header de 10% del ancho del viewport*/
-  	box-shadow: 0px 1px 8px grey; /*efecto de material con sombreado sobre el fondo*/
-    transition: 100ms; /*para la transicion con media queries diseño responsivo*/
-}
-@media screen and (max-width: 500px) {
 header {
-	height: 290px;  /* altura del encabezado, equivale a 5.5em*/
-	}
+  font-size: 20px;
+  background-color: #6a0000;
+  height: auto;
+  padding: 20px 10%;
+  box-shadow: 0px 1px 8px grey;
+  transition: 200ms;
 }
-.menu-container {/*caracteristicas elementos en contenedor con la clase menu-container*/
-  	display: flex; /*tipo de layout felxbox*/
-  	flex-direction: column; /*rederizara/dibujara los items/elementos hijos en el layout 
-  	como una columna, un contenedor o un item sobre el otro */
+
+/* ===== NUEVO: Contenedor superior (logo + botón alineados) ===== */
+.menu-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Logo izquierda - botón derecha */
+  align-items: center;             /* MISMA ALTURA */
 }
-.identificador {/*caracteristicas elementos en contenedor con la clase identificador*/
-  	/*border: 5px solid #222;  /* For debugging */
-  	width: 90%; /*ancho que tendra el contenedor con clase menu*/
-  	display: flex; /*sera un elemento/item de tipo flex*/
-  	justify-content: center; /*defino la alineación horizontal de los items hijos al centro*/
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.identificador img{/*caracteristicas imagen identificadora dentro del contenedor con clase identificador*/
-	margin-top: 15px; /*un margen arriba de 15 px*/
-    height: 77.61px; /*ancho que tendra la imagen identificadora*/
+
+.identificador {
+  display: flex;
+  align-items: center;
 }
-.ligas-secciones{/*caracteristicas elementos en contenedor con la clase secciones*/
-	/*border: 5px solid #555;  /* For debugging */
-	width: 100%; /*ancho que tendra el contenedor con clase menu*/
-	display: flex; /*sera un elemento/item de tipo flex*/
-	justify-content: space-between; /*defino la alineación horizontal de los items hijos diciendo
-	cuando hay mas de uno distribuya el esapcio restante entre los espacios de cada elemento/item*/
+
+.identificador img {
+  margin-top: 0; /* Para que no empuje hacia abajo */
+  height: 80px;
 }
-.ligas-secciones a{/*caracteristicas elementos tipo enlace dentro del contenedor con clase secciones*/
-	color: white; /*color que tendran las fuentes de los enlaces*/
-	text-decoration: none; /*le quito decoraciones a los enlaces, saeln sin subrayar ahora*/
-  	font-weight: bold; /*tipo de letra bold*/
- 	margin-top: 10px;
- 	transition: 50ms; /*para la transicion con media queries diseño responsivo*/
+
+.ligas-secciones {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
-.ligas-secciones a:hover{
-  transform: scale(1.03);
-  transition: 50ms;
+
+.ligas-secciones a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 5px;
+  transition: transform 120ms ease;
 }
-/**media query cuando ancho es menor o igual a 700px**/
-@media screen and (max-width: 700px) {
+
+.ligas-secciones a:hover {
+  transform: scale(1.08);
+}
+
+.menu-toggle {
+  display: none; 
+  background: none;
+  border: 2px solid white;
+  color: white;
+  font-size: 26px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 680px) {
+
+  header {
+    padding: 15px 6%;
+  }
+
+  /* Mostrar botón en móvil */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Menú oculto en móvil */
   .ligas-secciones {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    }
- }
+    display: none;
+  }
+
+  .ligas-secciones.show {
+    display: flex;
+  }
+}
+
+
 /***************************************************/
 
 
