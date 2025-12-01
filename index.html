@@ -13,6 +13,7 @@ la estructura que se llenara como se menciona a continuación...-->
 	<title>felxbox_01</title> <!--dentro de la etiqueta tittle esta el titulo de la página-->
 	<link rel='stylesheet' href='estilos.css'/> <!--dentro de esta etiqueta esta la referencia a la hoja de estilos-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--viewport para trabajar responsive design-->
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
 </head>
 
 <!------------body de pagina----------->  
@@ -274,11 +275,11 @@ la estructura que se llenara como se menciona a continuación...-->
     		<h1>Exteriores del Museo de Louvre</h1>
     		<br>
     		<br>
-    		<!--contenedor para las imagenes de la sección OJO: este tiene un layout para una imagen-->
     		<div class="iframe-container">
-    			<!--si se quiere modificar contenido susutituir la imagen a la que referencia la etiqueta img-->
-        		<iframe  src="https://momento360.com/e/u/1d87577775ec41419f43d3d34c428cf0?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=100&size=medium&display-plan=true"></iframe>
-        		<!--texto para la imagen-->
+			  <a-scene embedded>
+				<a-sky src="https://i.postimg.cc/nrV37h27/IMG-8402.jpg" rotation="0 -130 0">
+				</a-sky>
+			  </a-scene>
         		<p>Vista 360 del museo<p>
     		</div>
 
@@ -317,10 +318,10 @@ la estructura que se llenara como se menciona a continuación...-->
 
 	<!---------enlace que regresa al inicio de la pagina--------->
 	<!--dentro de la etiqueta "a" de tipo enlace esta la imagen que actua como icono que regresa al inicio de la página-->
-	    <a class="ir-arriba" title="Volver arriba" href="#inicio">
-	    	<!--si se quiere modificar contenido susutituir la imagen a la que referencia la etiqueta img-->
-	      	<img src="assets/img/flecha-arriba.png">
-	    </a>
+	    <a href="#inicio" class="btn-arriba" title="Volver arriba">
+		  <img src="assets/img/flecha-arriba.png" alt="Subir">
+		</a>
+
 
 </body>
 
@@ -333,5 +334,19 @@ la estructura que se llenara como se menciona a continuación...-->
 
   toggleBtn.addEventListener("click", () => {
     links.classList.toggle("show");
+  });
+</script>
+
+<script>
+  const btnArriba = document.querySelector('.btn-arriba');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      btnArriba.style.opacity = '1';
+      btnArriba.style.visibility = 'visible';
+    } else {
+      btnArriba.style.opacity = '0';
+      btnArriba.style.visibility = 'hidden';
+    }
   });
 </script>

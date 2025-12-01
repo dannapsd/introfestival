@@ -61,6 +61,8 @@ header {
 
 .ligas-secciones a:hover {
   transform: scale(1.08);
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.973);
 }
 
 /* Botón menú (hamburguesa) */
@@ -363,30 +365,48 @@ footer {
 /*********************************/
 /*estilos para icono hacia arriba*/
 /*********************************/
-.ir-arriba {
-  	display: block;/*sera un elemento/item de tipo flex*/
-  	flex-direction: column;
-  	align-items: center; 
+/* Contenedor del botón */
+.btn-arriba {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
 }
-.ir-arriba img{
-  	height: 60px;
-  	padding-right: 30px;
-  	text-decoration: none;
-  	cursor:pointer;
-  	position:fixed;
- 	bottom:20px;
+
+.btn-arriba img {
+  width: 28px;
+  height: 28px;
 }
-/**media query cuando ancho es menor o igual a 700px**/
-@media screen and (max-width: 400px){
-	.ir-arriba img{
-		height: 50px;
-  		padding-right: 0px;
-	}
+
+.btn-arriba:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.28);
 }
-.ir-arriba img:hover{
-	transform: scale(1.1);
-  	transition: 100ms;
+
+/* Responsive */
+@media (max-width: 400px) {
+  .btn-arriba {
+    width: 48px;
+    height: 48px;
+  }
+  .btn-arriba img {
+    width: 24px;
+    height: 24px;
+  }
 }
+
 /***************************************************/
 
 /* TODO */
@@ -397,22 +417,21 @@ img {
 }
 
 .iframe-container {
-    position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Relación 16:9 (puedes cambiarla) */
-    height: 0;
-    overflow: hidden;
+    max-width: 1000px; /* tamaño que TÚ quieras */
+    height: 1000px; /* altura del visor */
+    position: relative;
+    margin: 20px auto;
+    border: 1px solid #ccc;
 }
 
-.iframe-container iframe {
-    position: absolute;
+a-scene {
+    position: absolute !important;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    width: 100% !important;
+    height: 100% !important;
 }
-
 
 p {
 	line-height: 1.5;
