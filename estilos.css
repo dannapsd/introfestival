@@ -335,3 +335,16 @@ footer {
   	transition: 100ms;
 }
 /***************************************************/
+
+/* TODO */
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe {
+	border: none;
+	max-width: 100%;
+	height: auto;
+}
