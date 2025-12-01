@@ -20,42 +20,35 @@ html {
 header {
   font-size: 20px;
   background-color: #6a0000;
-  height: auto;
   padding: 20px 10%;
   box-shadow: 0px 1px 8px grey;
   transition: 200ms;
+
+  display: flex;
+  flex-direction: column; /* permite menú abajo */
+  gap: 10px;
 }
 
-/* ===== NUEVO: Contenedor superior (logo + botón alineados) ===== */
+/* Contenedor superior: logo + menú */
 .menu-top {
   width: 100%;
   display: flex;
-  justify-content: space-between; /* Logo izquierda - botón derecha */
-  align-items: center;             /* MISMA ALTURA */
-}
-
-.menu-container {
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
-.identificador {
-  display: flex;
-  align-items: center;
-}
-
+/* Logo */
 .identificador img {
-  margin-top: 0; /* Para que no empuje hacia abajo */
   height: 80px;
 }
 
+/* Enlaces */
 .ligas-secciones {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
   flex-wrap: wrap;
+  margin-top: 10px;
   gap: 12px;
 }
 
@@ -63,7 +56,6 @@ header {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 5px;
   transition: transform 120ms ease;
 }
 
@@ -71,8 +63,9 @@ header {
   transform: scale(1.08);
 }
 
+/* Botón menú (hamburguesa) */
 .menu-toggle {
-  display: none; 
+  display: none;
   background: none;
   border: 2px solid white;
   color: white;
@@ -80,6 +73,11 @@ header {
   padding: 5px 12px;
   border-radius: 6px;
   cursor: pointer;
+
+  /* FIX PARA MÓVILES */
+  position: relative;
+  z-index: 9999;
+  touch-action: manipulation;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -89,24 +87,26 @@ header {
     padding: 15px 6%;
   }
 
-  /* Mostrar botón en móvil */
+  /* Logo más pequeño en móvil */
+  .identificador img {
+    height: 65px;
+  }
+
   .menu-toggle {
     display: block;
   }
 
-  /* Menú oculto en móvil */
   .ligas-secciones {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    display: none;
+    display: none; /* oculto por defecto */
   }
 
   .ligas-secciones.show {
-    display: flex;
+    display: flex; /* aparece al presionar */
   }
 }
-
 
 /***************************************************/
 
