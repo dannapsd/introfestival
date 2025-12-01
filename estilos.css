@@ -300,43 +300,59 @@ header {
 /*estilos para footer de la página*/
 /**********************************/
 footer {
-  	background-color: #6a0000;/*color fondo pie de pagina*/
-  	margin-top: 60px;
-  	box-shadow: 0px 1px 8px grey;
-  	display: flex; /*sera un elemento/item de tipo flex*/
-  	flex-direction: column;
-  	align-items: center; 
+  background-color: #6a0000;
+  margin-top: 60px;
+  box-shadow: 0px -1px 8px grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
 }
-.footer-item{
-	margin-top: 47px;
-	width: 0%;
-  	display: flex; /*sera un elemento/item de tipo flex*/
-  	justify-content: center; /*defino la alineación horizontal de los items hijos al centro*/
+
+/* Íconos */
+.footer-item {
+  display: flex;
+  justify-content: center;
+  gap: 35px; /* Separación uniforme entre iconos */
+  margin-bottom: 40px;
 }
-.footer-item img{
-	height: 30px;
-	margin-right: 35px;
+
+.footer-item img {
+  height: 35px;
+  transition: transform 150ms ease, opacity 150ms ease;
 }
-.copyright{
-	font-size: 13pt;
-	text-align: center;
-	margin-top: 49px;
-	margin-bottom: 95px;
+
+.footer-item img:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
 }
-/**media query cuando ancho es menor o igual a 700px**/
-@media screen and (max-width: 700px){
-	.footer-item{
-  		flex-direction: column;
-  		align-items: center; 
-	}
-	.footer-item img{
-		height: 30px;
-		margin-top: 35px;
-		margin-right: 0px;
-	}
-	.copyright{
-		font-size: 12pt;
-	}
+
+/* Copyright */
+.copyright {
+  font-size: 13pt;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.copyright p {
+  margin: 0;
+}
+
+/* ===== Responsivo ===== */
+@media screen and (max-width: 700px) {
+
+  .footer-item {
+    gap: 25px;
+  }
+
+  .footer-item img {
+    height: 32px;
+  }
+
+  .copyright {
+    font-size: 12pt;
+  }
 }
 /***************************************************/
 
